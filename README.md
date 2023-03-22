@@ -1,0 +1,8 @@
+# UART-Communication
+This code utilizes UART to communicate between two different devices i.e. user and terminal or between two MSP's
+
+This code is a C program that interfaces with an LCD display and a UART communication module. The program continuously prompts the user for input, and sends the input to both the LCD display and the UART module for transmission. It also prints the received input to the console. If the user enters the word "exit", the program terminates and displays a message on the LCD.
+
+The program first initializes the LCD display, clears it, and sets up UART communication. It then enters an infinite loop where it prompts the user for input using the printf() and scanf() functions. When input is received, it is first checked if the user has entered "exit". If "exit" is entered, the program exits and displays a message on the LCD. Otherwise, the input is sent to both the LCD and the UART module for transmission, the LCD is cleared, and the user input is displayed on the LCD. Finally, the input is printed to the console, and the user input array is cleared.
+
+The sendData() function is used to transmit data to the UART module, and the sendToLCD() function is used to display data on the LCD. The program uses the MSP432P401R microcontroller, which is why the msp.h header file is included. The lcdLib_432.h header file contains functions for interfacing with the LCD display. The program uses polling to wait for the UART module to finish transmitting data before sending the next byte. The delay_cycles() function is used to introduce a delay between transmissions to prevent data loss.
